@@ -56,10 +56,7 @@ const Message = () => {
         <Text className='text-center text-white text-lg mt-2 font-extrabold'>Send</Text>
        </TouchableOpacity>
 
-       <TouchableOpacity className='ml-12 mr-12 rounded-xl h-12 bg-amber-400 mt-8'
-          onPress={() => navigation.navigate('profile')}>
-        <Text className='text-center text-white text-lg mt-2 font-extrabold'>Back</Text>
-       </TouchableOpacity>
+       
        
     </View>
     </View>
