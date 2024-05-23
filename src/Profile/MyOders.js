@@ -12,15 +12,13 @@ const MyOders = ({ route }) => {
     const navigation = useNavigation();
 
     const [users, setUsers] = useState([]);
-    const [filteredPosts, setFilteredPosts] = useState([]);
-    const [searchInput, setSearchInput] = useState('');
     const [filteredData, setFilteredData] = useState([]);
   
   //Select data using product name// 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const q = query(collection(db, 'Order'), where('Username', '==', userName));
+        const q = query(collection(db, 'Order'), where('P_Username', '==', userName));
         const querySnapshot = await getDocs(q);
         const searchData = querySnapshot.docs.map(doc => ({
           id: doc.id,
@@ -31,6 +29,7 @@ const MyOders = ({ route }) => {
           Category: doc.data().Category,
           C_Number: doc.data().C_Number,
           Email: doc.data().Email,
+          C_UserName: doc.data().C_UserName,
           Address: doc.data().Address,
         }));
         setFilteredData(searchData);
@@ -63,22 +62,38 @@ const MyOders = ({ route }) => {
 <ScrollView>
       {filteredData.map(item => (
         <View key={item.id}>
-          <View className='container bg-slate-200 w-96 h-80 rounded-xl ml-4 mt-10'>
-          <Text className='ml-48 mt-3 font-bold text-xl'> {item.P_Name}</Text>
-          <Text className='ml-72 -mt-2'> ({item.Category})</Text>
-          <Text className='ml-48 mt-1 text-base text-blue-800'> {item.Units} Killo</Text>
-          <Text className='ml-48 mt-1 text-base'> R.s {item.Price}.00</Text>
-          <TouchableOpacity className='ml-52 mt-3'>
+          <View className='container bg-slate-200 w-96 h-88 rounded-xl ml-4 mt-10'>
+          <Text className='ml-4 mt-3 font-bold text-xl'> {item.P_Name}</Text>
+          <Text className='ml-24 -mt-2'> ({item.Category})</Text>
+
+          <Text className='ml-4 mt-4 text-base'>Quntity :</Text>
+          <Text className='ml-24 -mt-6 text-base text-blue-800'> {item.Units} Killo</Text>
+
+          <Text className='ml-4 mt-1 text-base'>Price :</Text>
+          <Text className='ml-24 -mt-6 text-base'> R.s {item.Price}.00</Text>
+
+          <Text className='ml-4 mt-1 text-base'>location :</Text>
+          <TouchableOpacity className='ml-24 -mt-6'>
             <Icon name='location' size={20} />
             <Text className='ml-7 -mt-5'>{item.Location}</Text>
           </TouchableOpacity>
+
+          <Text className='ml-4 mt-1 text-base'>Customer Name :</Text>
+          <Text className='ml-44 -mt-6 text-base'>{item.C_UserName}</Text>
+
+          <Text className='ml-4 mt-1 text-base'>Customer Email :</Text>
+          <Text className='ml-44 -mt-6 text-base'>{item.Email}</Text>
+
+          <Text className='ml-4 mt-1 text-base'>Customer C_Number :</Text>
+          <Text className='ml-48 -mt-6 text-base'>  {item.C_Number}</Text>
+
         </View>
-        <View className='container bg-slate-100 w-36 h-32 rounded-xl -mt-72 mb-3 ml-8'>
+        <View className='container bg-slate-100 w-36 h-32 rounded-xl mt-16 absolute mb-3 ml-60'>
           {/* Add your image display logic here if you have image data in 'user.Image' */}
         </View>
 
         <TouchableOpacity className='bg-slate-800 w-20 ml-48 rounded-xl h-10 mt-2'>
-          <Text className='text-center text-white  mt-2 font-extrabold'>Conform</Text>
+          <Text className='text-center text-white  mt-2 font-extrabold'>Accept</Text>
           </TouchableOpacity>
 
           <TouchableOpacity className='bg-red-800 w-20 ml-72 -mt-10 rounded-xl h-10 mb-2' onPress={() => handleDelete(item.id)}>

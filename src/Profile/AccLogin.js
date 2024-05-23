@@ -79,7 +79,7 @@ export default function AccLogin() {
          <Icon name={secureText ? 'eye-off' : 'eye'} size={25} color="black"/> 
          </TouchableOpacity>
        
-      <TouchableOpacity>
+      <TouchableOpacity onPress={() => navigation.navigate('Change Password')}>
       <Text className='ml-10 mt-5 text-blue-800'>Reset the Password?</Text>
       </TouchableOpacity>
 

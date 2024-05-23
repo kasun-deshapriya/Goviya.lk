@@ -11,6 +11,7 @@ const Order = ({ route }) => {
     productCategory,
     productPrice,
     productUnits,
+    UserName,
   } = route.params;
  // Assuming you have an optional productImageUri property
   
@@ -42,7 +43,8 @@ const Order = ({ route }) => {
     Address: address,
     Email: email,
     C_Number: c_number,
-    Username: Username,
+    P_Username: UserName,
+    C_UserName: Username,
   }).then(() => {
     console.log('Data Submitted');
    

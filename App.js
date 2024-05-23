@@ -15,7 +15,6 @@ import Order from './src/BottomTab/Order';
 
 import Create from './src/Profile/CreateAcc';
 import Register from './src/Profile/Register';
-import Login from './src/Profile/Loging';
 import AddProduct from './src/BottomTab/AddProduct';
 import Location from './src/Home/Location';
 import ViewProduct from './src/Home/ViewProduct';
@@ -31,6 +30,8 @@ import AccLoging from './src/Profile/AccLogin';
 import MyAds from './src/Profile/MyAds';
 import MyOders from './src/Profile/MyOders';
 import Setting from './src/Profile/Setting';
+import MyPostEdit from './src/Profile/MyPostEdit';
+import ChangeProfile from './src/Profile/ChangeProfile';
 
 
 
@@ -118,13 +119,14 @@ function StackNavigator2() {
       <Stack.Screen name='AccLoging' component={AccLoging} options={{headerStyle: {height: '',},}}/>
       <Stack.Screen name='Favorite Posts' component={Favorites}/>
       <Stack.Screen name='Register' component={Register} options={{headerStyle: {height: '',},}}/>
-      <Stack.Screen name='Login' component={Login} options={{headerStyle: {height: '',},}}/>
       <Stack.Screen name='CreactAcc' component={Create} options={{headerStyle: {height: '',},}}/>
       <Stack.Screen name='My Post' component={MyAds}/>
       <Stack.Screen name='My Oders' component={MyOders}/>
       <Stack.Screen name='Setting' component={Setting}/>
       <Stack.Screen name='Add Post' component={AddProduct} options={{headerStyle: {backgroundColor:'rgb(30 41 59)'}, headerTitleStyle: {color:'white'},}}/>
       <Stack.Screen name='location' component={Location}/>
+      <Stack.Screen name='Change Password' component={ChangeProfile}/>
+      <Stack.Screen name='Edit Post' component={MyPostEdit}/>
 
     </Stack.Navigator>
   );

@@ -1,35 +1,25 @@
-import React, { useEffect, useState } from 'react';
-import { View, Image, FlatList, StyleSheet, Dimensions } from 'react-native';
-import firestore from '@react-native-firebase/firestore';
+import React, { useContext } from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import { NotificationContext } from './Notification Provider';
 
-const App = () => {
-  const [images, setImages] = useState([]);
+const NotificationsPage = () => {
+  const { notifications } = useContext(NotificationContext);
 
-  useEffect(() => {
-    const fetchImages = async () => {
-      const imageCollection = await firestore().collection('images').get();
-      const imageData = imageCollection.docs.map(doc => doc.data().url);
-      setImages(imageData);
-    };
-
-    fetchImages();
-  }, []);
-
-  const renderItem = ({ item }) => (
-    <View style={styles.slide}>
-      <Image source={{ uri: item }} style={styles.image} />
-    </View>
-  );
+  if (!notifications) {
+    return <Text>Loading...</Text>;
+  }
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Notifications</Text>
       <FlatList
-        data={images}
-        keyExtractor={(item, index) => index.toString()}
-        renderItem={renderItem}
-        horizontal
-        pagingEnabled
-        showsHorizontalScrollIndicator={false}
+        data={notifications}
+        keyExtractor={(item) => item.id}
+        renderItem={({ item }) => (
+          <View style={styles.notification}>
+            <Text style={styles.notificationText}>New post added: {item.P_Name}</Text>
+          </View>
+        )}
       />
     </View>
   );
@@ -38,26 +28,22 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 20,
+  },
+  notification: {
     padding: 10,
+    marginVertical: 5,
+    backgroundColor: '#f8f8f8',
+    borderRadius: 5,
   },
-  slide: {
-    width: Dimensions.get('window').width - 40, // subtracting marginHorizontal
-    height: 200, // Set your desired height
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginHorizontal: 10,
-    borderRadius: 10,
-    backgroundColor: '#22543d', // equivalent to bg-green-900
-  },
-  image: {
-    width: '100%',
-    height: '100%',
-    borderRadius: 10,
+  notificationText: {
+    fontSize: 16,
   },
 });
 
-export default App;
-
-
+export default NotificationsPage;

@@ -1,4 +1,4 @@
-import { View, TextInput, TouchableOpacity, Text } from 'react-native'
+import { View, TextInput, TouchableOpacity, Text, Alert } from 'react-native'
 import React from 'react'
 import { useNavigation } from '@react-navigation/native'
 import { addDoc, collection, doc, setDoc } from 'firebase/firestore';
@@ -6,7 +6,8 @@ import { db } from '../../firebaseconfig';
 import { useState } from 'react';
 
 
-const Message = () => {
+const Message = ({ route }) => {
+  const { userName } = route.params;
   const navigation = useNavigation()
 
   const [name, setName] = useState('');
@@ -15,6 +16,14 @@ const Message = () => {
   const [message, setMessage] = useState('');
 
   function SubmitMessage() {
+    if (name=="" && email=="" && subject=="" && message==""){
+      Alert.alert('Can not Send Message', `Fil All Field`,[
+        {
+          text: 'OK',
+        },
+      ]);;
+    }
+    else{
     addDoc(collection(db, "Contact_Us"), {
       Name: name,
       Email: email,
@@ -22,9 +31,18 @@ const Message = () => {
       Message: message,
     }).then(() => {
       console.log('Data Submitted');
+      Alert.alert('Message Send Success', `Your Message Send Successfully!!`,[
+        {
+          text: 'OK',
+          onPress: () => {
+            navigation.navigate('LoginProfile',{userName}); 
+          },
+        },
+      ]);;
     }).catch((error) => {
       console.log(error);
     });
+  }
   }
   return (
     <View>

@@ -50,11 +50,19 @@ const AddProduct = ({ route }) => {
   const [location, setlocation] = useState('');
   const [address, setaddress] = useState('');
   const [email, setemail] = useState('');
+  const [username, setusername] = useState('');
   const [c_number, setc_number] = useState('');
   const [description, setdescription] = useState('');
   const [ImageURL, setImageURL] = useState('');
 
   const SubmitData = async () => {
+
+    if (selectedCategory=="" && p_name=="" && units=="" && price=="" && location=="" && address==""
+    && email=="" && username=="" && c_number=="" && description=="" && ImageURL==""
+    ) {
+      Alert.alert('Can not Post Your Add', 'Please fill in all fields');
+      return;
+    }
     if (selectedImage) {
       setUploading(true); // Set uploading state to true
       
@@ -71,6 +79,7 @@ const AddProduct = ({ route }) => {
           Location: location,
           Address: address,
           Email: email,
+          userName: username,
           C_Number: c_number,
           Description: description,
           ImageURL: ImageURL,
@@ -228,6 +237,14 @@ const AddProduct = ({ route }) => {
             <TextInput className='bg-white h-12 ml-8 mr-8 mt-2 rounded-xl text-lg text-slate-700' style={{padding:12}}
             value={email}
             onChangeText={setemail}
+            />
+        </View>
+
+        <View>
+            <Text className='ml-5 mt-4 font-medium text-base'>UserName :</Text>
+            <TextInput className='bg-white h-12 ml-8 mr-8 mt-2 rounded-xl text-lg text-slate-700' style={{padding:12}}
+            value={username}
+            onChangeText={setusername}
             />
         </View>
 

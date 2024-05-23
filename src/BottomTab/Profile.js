@@ -33,52 +33,52 @@ const Profile = ({ route }) => {
         <Text className='font-medium text-xl ml-5 mt-5'>{userName}</Text>
       </View>
 
-      <View className='bg-slate-100 h-16 mt-8'>
-      <TouchableOpacity className='ml-5 mt-3' onPress={() => navigation.navigate('Add Post' , { userName })}>
+      <View className='bg-slate-200 h-16 mt-8 ml-2 mr-2 rounded-md'>
+      <TouchableOpacity className='ml-5 mt-5' onPress={() => navigation.navigate('Add Post' , { userName })}>
       <Icon name='add-circle' size={25}></Icon>
         <Text className='font-medium text-l ml-10 -mt-6'>Add Post</Text>
       </TouchableOpacity>
       </View>
 
-      <View className='bg-slate-100 h-16 mt-1'>
-      <TouchableOpacity className='ml-5 mt-3' onPress={() => navigation.navigate('My Post', { userName })}>
+      <View className='bg-slate-200 h-16 mt-2 ml-2 mr-2 rounded-md'>
+      <TouchableOpacity className='ml-5 mt-5' onPress={() => navigation.navigate('My Post', { userName })}>
       <Icon name='albums' size={25}></Icon>
         <Text className='font-medium text-l ml-10 -mt-6'>My Post</Text>
       </TouchableOpacity>
       </View>
 
-      <View className='bg-slate-100 h-16 mt-1'>
-      <TouchableOpacity className='ml-5 mt-3' onPress={() => navigation.navigate('Favorite Posts')}>
+      <View className='bg-slate-200 h-16 mt-2 ml-2 mr-2 rounded-md'>
+      <TouchableOpacity className='ml-5 mt-5' onPress={() => navigation.navigate('Favorite Posts')}>
       <Icon name='star' size={25}></Icon>
         <Text className='font-medium text-l ml-10 -mt-6'>Favorites</Text>
       </TouchableOpacity>
       </View>
 
-      <View className='bg-slate-100 h-16 mt-1'>
-      <TouchableOpacity className='ml-5 mt-3' onPress={() => navigation.navigate('My Oders' , { userName })}>
+      <View className='bg-slate-200 h-16 mt-2 ml-2 mr-2 rounded-md'>
+      <TouchableOpacity className='ml-5 mt-5' onPress={() => navigation.navigate('My Oders' , { userName })}>
       <Icon name='cart' size={25}></Icon>
         <Text className='font-medium text-l ml-10 -mt-6'>My Orders</Text>
       </TouchableOpacity>
       </View>
 
-      <View className='bg-slate-100 h-16 mt-1'>
-      <TouchableOpacity className='ml-5 mt-3' onPress={() => navigation.navigate('Setting')}>
+      <View className='bg-slate-200 h-16 mt-2 ml-2 mr-2 rounded-md'>
+      <TouchableOpacity className='ml-5 mt-5' onPress={() => navigation.navigate('Setting', { userName })}>
       <Icon name='settings' size={25}></Icon>
         <Text className='font-medium text-l ml-10 -mt-6'>Settings</Text>
       </TouchableOpacity>
       </View>
 
-      <View className='bg-slate-100 h-16 mt-1'>
-      <TouchableOpacity className='ml-5 mt-3' onPress={() => navigation.navigate('Message')}>
+      <View className='bg-slate-200 h-16 mt-2 ml-2 mr-2 rounded-md'>
+      <TouchableOpacity className='ml-5 mt-5' onPress={() => navigation.navigate('Message', { userName })}>
       <Icon name='send' size={25}></Icon>
         <Text className='font-medium text-l ml-10 -mt-6'>Contact-Us</Text>
       </TouchableOpacity>
       </View>
 
-      <View className='bg-slate-100 h-16 mt-5'>
-      <TouchableOpacity className='ml-5 mt-3' onPress={LoginOut}>
+      <View className='bg-slate-300 h-16 mt-5 ml-2 mr-2 rounded-md'>
+      <TouchableOpacity className='ml-5 mt-5' onPress={LoginOut}>
       <Icon name='power' size={25}></Icon>
-        <Text className='font-medium text-l ml-10 -mt-6'>Log Out</Text>
+        <Text className='font-medium text-xl ml-10 -mt-8 text-red-800'>Log Out</Text>
       </TouchableOpacity>
       </View>
 

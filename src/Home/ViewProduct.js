@@ -8,7 +8,7 @@ import { db } from '../../firebaseconfig';
 
 const ViewProduct = ({ route }) => {
   const { productId, productName, productCategory, productUnits, productPrice, productLocation,
-    phoneNumber, productImageUri, Email, productDescription } = route.params; // Assuming you have an optional productImageUri property
+    phoneNumber, productImageUri, Email, productDescription, UserName } = route.params; // Assuming you have an optional productImageUri property
 
     const [isVisible, setIsVisible] = useState(true);
 
@@ -90,6 +90,7 @@ const ViewProduct = ({ route }) => {
         productPrice: productPrice,
         productUnits: productUnits,
         ProductEmail:Email,
+        UserName:UserName
       })}>
       <Text className='text-center text-white text-lg mt-2 font-extrabold'>Order</Text>
      </TouchableOpacity>

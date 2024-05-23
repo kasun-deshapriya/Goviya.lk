@@ -61,7 +61,7 @@ export default function Register() {
           {
             text: 'OK',
             onPress: () => {
-              navigation.navigate('Login'); // Navigate to 'Add Post' screen after success alert
+              navigation.navigate('AccLoging'); // Navigate to 'Add Post' screen after success alert
             },
           },
         ]);

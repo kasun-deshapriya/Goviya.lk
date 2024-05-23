@@ -31,6 +31,7 @@ const Search = () => {
           Image: doc.data().Image,
           C_Number: doc.data().C_Number,
           Email: doc.data().Email,
+          UserName: doc.data().UserName,
           Description: doc.data().Description,
         }));
         setUsers(usersData);
@@ -123,6 +124,7 @@ const Search = () => {
               productLocation: user.Location,
               phoneNumber: user.C_Number,
               Email: user.Email,
+              UserName: user.UserName,
               productDescription: user.Description,
             })
           }
