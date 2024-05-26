@@ -41,7 +41,14 @@ const Stack = createStackNavigator();
 
 function TabNavigator() {
   return (
-    <Tab.Navigator>
+    <Tab.Navigator
+     tabBarOptions={{
+          style: {
+            backgroundColor: 'black', // Replace with your desired background color
+          },
+          activeTintColor: '#000', // Active tab color
+          inactiveTintColor: '#888', // Inactive tab color
+        }}>
       
       <Tab.Screen name='Home' component={StackNavigator1} options={{
           tabBarLabel: 'Home',
@@ -76,19 +83,6 @@ function TabNavigator() {
   );
 }
 
-function StackNavigator() {
-  return (
-    <Stack.Navigator>
-      <Stack.Screen name='CreactAcc' component={Create} options={{headerStyle: {height: '',},}}/>
-      <Stack.Screen name='Register' component={Register} options={{headerStyle: {height: '',},}}/>
-      <Stack.Screen name='Login' component={Login} options={{headerStyle: {height: '',},}}/>
-      <Stack.Screen name='Add Post' component={AddProduct} options={{headerStyle: {backgroundColor:'rgb(30 41 59)'}, headerTitleStyle: {color:'white'},}}/>
-      <Stack.Screen name='location' component={Location}/>
-      <Stack.Screen name='AccLoging' component={AccLoging} options={{headerStyle: {height: '',},}}/>
-
-    </Stack.Navigator>
-  );
-}
 
 function StackNavigator1() {
   return (
@@ -150,7 +144,7 @@ function StackNavigator4() {
   return (
     <Stack.Navigator>
 
-      <Stack.Screen name='Notification' component={Notification}  options={{headerStyle: {},}}/>
+      <Stack.Screen name='Notification' component={Notification}   options={{headerStyle: {backgroundColor:'rgb(30 41 59)'}, headerTitleStyle: {color:'white'},}}/>
 
     </Stack.Navigator>
   );

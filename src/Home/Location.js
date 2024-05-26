@@ -51,6 +51,11 @@ const Location = () => {
     navigation.navigate('HomeCopy', { filteredData });
   };
 
+  const handlePress = (location) => {
+    setSelectedLocation(location);
+    setSearchInput(location);
+  };
+
 
   return (
     <View>
@@ -74,19 +79,85 @@ const Location = () => {
         <Icon name='search-outline' size={30}></Icon>
         </TouchableOpacity>
       </View>
-        <Picker 
-          selectedValue={selectedLocation}
-          onValueChange={(itemValue, itemIndex) => setSelectedLocation(itemValue)}
-        >
-          <Picker.Item label='Select a location...' value='' />
-          <Picker.Item label='Kurunegala' value='Kurunegala' />
-          <Picker.Item label='Anuradhapura' value='Anuradhapura' />
-          <Picker.Item label='Kandy' value='Kandy' />
-          <Picker.Item label='Galgamuwa' value='Galgamuwa' />
-          <Picker.Item label='Maho' value='Maho' />
-          <Picker.Item label='Dambulla' value='Dambulla' />
-        </Picker>
-        
+  <View className='h-3/4 mt-5'>
+   <ScrollView>
+      <View className='container ml-4 mt-4 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Kurunegala')}>
+        <Text className='text-base ml-2 mt-1'>Kurunegala</Text>
+      </TouchableOpacity>
+      </View> 
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Galgamuwa')}>
+        <Text className='text-base ml-2 mt-1'>Galgamuwa</Text>
+      </TouchableOpacity>
+      </View> 
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Ibbagamuwa')}>
+        <Text className='text-base ml-2 mt-1'>Ibbagamuwa</Text>
+      </TouchableOpacity>
+      </View>
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Wariyapola')}>
+        <Text className='text-base ml-2 mt-1'>Wariyapola</Text>
+      </TouchableOpacity>
+      </View>
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Maho')}>
+        <Text className='text-base ml-2 mt-1'>Maho</Text>
+      </TouchableOpacity>
+      </View>
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Nikawaratiya')}>
+        <Text className='text-base ml-2 mt-1'>Nikawaratiya</Text>
+      </TouchableOpacity>
+      </View>
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Kubukgate')}>
+        <Text className='text-base ml-2 mt-1'>Kubukgate</Text>
+      </TouchableOpacity>
+      </View>
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Polpithigama')}>
+        <Text className='text-base ml-2 mt-1'>Polpithigama</Text>
+      </TouchableOpacity>
+      </View>
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Padeniya')}>
+        <Text className='text-base ml-2 mt-1'>Padeniya</Text>
+      </TouchableOpacity>
+      </View>
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Daladagama')}>
+        <Text className='text-base ml-2 mt-1'>Daladagama</Text>
+      </TouchableOpacity>
+      </View>
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Abanpola')}>
+        <Text className='text-base ml-2 mt-1'>Abanpola</Text>
+      </TouchableOpacity>
+      </View>
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Polgahawela')}>
+        <Text className='text-base ml-2 mt-1'>Polgahawela</Text>
+      </TouchableOpacity>
+      </View>
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Pannala')}>
+        <Text className='text-base ml-2 mt-1'>Pannala</Text>
+      </TouchableOpacity>
+      </View>
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Alawwa')}>
+        <Text className='text-base ml-2 mt-1'>Alawwa</Text>
+      </TouchableOpacity>
+      </View>
+      <View className='container ml-4 mt-1 bg-slate-300 h-10 w-96 rounded-lg'>  
+      <TouchableOpacity  onPress={() => handlePress('Hettipola')}>
+        <Text className='text-base ml-2 mt-1'>Hettipola</Text>
+      </TouchableOpacity>
+      </View>
+</ScrollView>
+</View>
       </View>
     </View>
   );

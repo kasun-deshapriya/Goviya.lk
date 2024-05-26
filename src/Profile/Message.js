@@ -15,13 +15,42 @@ const Message = ({ route }) => {
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
 
+  const validateFields = (name, email, subject, message) => {
+    const errors = [];
+  
+    if (!name.trim()) {
+      errors.push('Please enter your name.');
+    }
+  
+    if (!email.trim()) {
+      errors.push('Please enter your email address.');
+    } else if (!validateEmail(email)) {
+      errors.push('Please enter a valid email address.');
+    }
+  
+    if (!subject.trim()) {
+      errors.push('Please enter a password.');
+    } 
+  
+    if (!message.trim()) {
+      errors.push('Please confirm your password.');
+    } 
+  
+    return errors;
+  };
+
+  const validateEmail = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+  };
+
   function SubmitMessage() {
-    if (name=="" && email=="" && subject=="" && message==""){
-      Alert.alert('Can not Send Message', `Fil All Field`,[
-        {
-          text: 'OK',
-        },
-      ]);;
+    const errors = validateFields(name, email, subject, message);
+  
+    if (errors.length > 0) {
+      let errorMessage = 'Please fix the following errors:\n';
+      errors.forEach((error) => (errorMessage += `- ${error}\n`));
+      Alert.alert('Message Send Unsuccess', errorMessage);
     }
     else{
     addDoc(collection(db, "Contact_Us"), {

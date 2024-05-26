@@ -85,7 +85,7 @@ export default function ChangeProfile() {
       value={name}
       onChangeText={setName}></TextInput>
       
-      <Text className='ml-10 mt-5 font-medium text-lg'>Password:</Text>
+      <Text className='ml-10 mt-5 font-medium text-lg'>New Password:</Text>
       <TextInput className='bg-white h-12 ml-8 mr-8 mt-2 rounded-xl text-lg text-slate-700' 
       style={{padding:12}}  
       value={password}
@@ -93,7 +93,7 @@ export default function ChangeProfile() {
       secureTextEntry={secureText}
       ></TextInput>
 
-     <Text className='ml-10 mt-5 font-medium text-lg'>Re-Enter Password:</Text>
+     <Text className='ml-10 mt-5 font-medium text-lg'>Re-Enter New Password:</Text>
       <TextInput className='bg-white h-12 ml-8 mr-8 mt-2 rounded-xl text-lg text-slate-700' 
       style={{padding:12}}   
       value={confirmPassword}

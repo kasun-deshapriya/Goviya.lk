@@ -47,7 +47,7 @@ const AddProduct = ({ route }) => {
   const [p_name, setp_name] = useState('');
   const [units, setunits] = useState('');
   const [price, setprice] = useState('');
-  const [location, setlocation] = useState('');
+  const [selectedLocation, setSelectedLocation] = useState('');
   const [address, setaddress] = useState('');
   const [email, setemail] = useState('');
   const [username, setusername] = useState('');
@@ -57,7 +57,7 @@ const AddProduct = ({ route }) => {
 
   const SubmitData = async () => {
 
-    if (selectedCategory=="" && p_name=="" && units=="" && price=="" && location=="" && address==""
+    if (selectedCategory=="" && p_name=="" && units=="" && price=="" && selectedLocation=="" && address==""
     && email=="" && username=="" && c_number=="" && description=="" && ImageURL==""
     ) {
       Alert.alert('Can not Post Your Add', 'Please fill in all fields');
@@ -76,7 +76,7 @@ const AddProduct = ({ route }) => {
           P_Name: p_name,
           Units: units,
           Price: price,
-          Location: location,
+          Location: selectedLocation,
           Address: address,
           Email: email,
           userName: username,
@@ -218,10 +218,28 @@ const AddProduct = ({ route }) => {
 
         <View>
             <Text className='ml-5 mt-4 font-medium text-base'>Location :</Text>
-            <TextInput className='bg-white h-12 ml-8 mr-8 mt-2 rounded-xl text-lg text-slate-700' style={{padding:12}}
-            value={location}
-            onChangeText={setlocation}
-            />
+            <View className='bg-white h-12 ml-8 mr-8 mt-2 rounded-xl text-lg text-slate-700'>
+      <Picker 
+          selectedValue={selectedLocation}
+          onValueChange={(itemValue, itemIndex) => setSelectedLocation(itemValue)}
+        >
+          <Picker.Item label=' ' value='' />
+          <Picker.Item label='Kurunegala' value='Kurunegala' />
+          <Picker.Item label='Wariyapola' value='Wariyapola' />
+          <Picker.Item label='Ibbagamuwa' value='Ibbagamuwa' />
+          <Picker.Item label='Polpithimaga' value='Polpithimaga' />
+          <Picker.Item label='Padeniya' value='Padeniya' />
+          <Picker.Item label='Daladagama' value='Daladagama' />
+          <Picker.Item label='Maho' value='Maho' />
+          <Picker.Item label='Nikawaratiya' value='Nikawaratiya' />
+          <Picker.Item label='Abanpola' value='Abanpola' />
+          <Picker.Item label='Galgamuwa' value='Galgamuwa' />
+          <Picker.Item label='Polgahawela' value='Polgahawela' />
+          <Picker.Item label='Pannala' value='Pannala' />
+          <Picker.Item label='Alawwa' value='Alawwa' />
+          <Picker.Item label='Hettipola' value='Hettipola' />
+        </Picker>
+        </View>
         </View>
 
         <View>
